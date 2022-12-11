@@ -1,0 +1,52 @@
+.home__baner {
+	display: flex;
+	flex-wrap: wrap;
+	background-color: burlywood;
+	padding: 2rem
+}
+.home__baner__element {
+	display: flex;
+	flex-basis: 50%;
+	justify-content: center;
+	align-items: center;
+	min-width: 250px;
+}
+.home__baner__left {
+	flex-direction: column;
+}
+
+.home__baner__right img {
+	max-width: 100%;
+}
+.small__container {
+	max-width: 1080px;
+	margin: auto;
+}
+h2 {
+	width: 250px;
+	margin: auto;
+	text-align: center;
+	color: #626267;
+	margin-bottom: 60px;
+	margin-top: 50px;
+	font-weight: bold;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+.row img {
+	width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+	.home__baner__element {
+		flex-basis: 100%;	
+	}
+	.home__baner__left {
+		margin-bottom: 2rem;
+	}
+}

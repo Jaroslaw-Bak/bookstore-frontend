@@ -1,0 +1,10 @@
+.col__5 {
+    margin-bottom: 1rem;
+    min-width: 150px;
+    flex-basis: 15%;
+	transition: transform 0.5s;
+}
+
+.col__5:hover {
+	transform: translateY(-5px);
+}

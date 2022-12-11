@@ -1,0 +1,36 @@
+.small__container {
+	max-width: 1080px;
+	margin: 100px auto;
+	padding: 0 1rem;
+}
+.row {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.col__2 {
+	min-width: 300px;
+}
+
+.col__2 img {
+	min-width: 200px;
+	max-width: 250px;
+}
+.title {
+	font-size: 2rem;
+}
+.author {
+	font-size: 1.6rem;
+	color: gray;
+}
+
+.button {
+	display: inline-block;
+	background: darkcyan;
+	color: white;
+	padding: 9px 28px;
+	border-radius: 20px;
+	transition: background 0.5s;
+	border: none;
+	margin-left: 1rem;
+}
