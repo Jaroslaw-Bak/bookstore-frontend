@@ -45,7 +45,7 @@ const Header = () => {
 
 				<div className={styles.icons}>
 					<div className={styles.icons__profile}>
-						<img src={profile} alt='profile icon' />
+						<Link to='/Profile'> <img src={profile} alt='profile icon' /></Link>
 						<Link to={'/Cart'}>
 							<img src={cart} alt='cart icon' />
 						</Link>
