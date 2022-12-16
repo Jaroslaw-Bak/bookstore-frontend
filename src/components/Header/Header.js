@@ -3,11 +3,12 @@ import profile from '../../assets/profile.png';
 import cart from '../../assets/cart.png';
 import menu from '../../assets/menu.png';
 import { Link, NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import AuthContext from './../../context/authProvider';
 
 const Header = () => {
 	const [isActive, setActive] = useState(true);
-
+	const { auth } = useContext(AuthContext);
 	const toggleMenu = () => {
 		setActive(!isActive);
 	};
@@ -45,7 +46,11 @@ const Header = () => {
 
 				<div className={styles.icons}>
 					<div className={styles.icons__profile}>
-						<Link to='/Profile'> <img src={profile} alt='profile icon' /></Link>
+						
+						<Link to='/Profile'>
+							{auth.user}
+							<img src={profile} alt='profile icon' />
+						</Link>
 						<Link to={'/Cart'}>
 							<img src={cart} alt='cart icon' />
 						</Link>
