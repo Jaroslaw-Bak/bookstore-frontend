@@ -1,4 +1,6 @@
+
 const Register = () => {
+
     return (
         <main>
             <p>Register</p>

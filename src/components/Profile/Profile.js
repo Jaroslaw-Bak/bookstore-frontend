@@ -1,31 +1,33 @@
-import styles from './Profile.module.css'
-import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import AuthContext from './../../context/authProvider';
+import styles from './Profile.module.css';
+import { useNavigate } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import AuthContext from '../../context/authProvider';
 
 const Profile = () => {
 	const { auth, setAuth } = useContext(AuthContext);
+	const navigate = useNavigate();
 
 	const handleLogout = () => {
-		setAuth({})
-		localStorage.clear()
-	}
+		setAuth(false);
+		localStorage.clear();
+	};
 
-	return (
-		<main className={styles.wrapper}>
-			{auth.user ? (
+	useEffect(() => {
+		if (!auth) {
+			navigate('/Auth');
+		}
+	});
+
+	if (auth.user) {
+		return (
+			<main className={styles.wrapper}>
 				<div>
 					{auth.user}
 					<button onClick={() => handleLogout()}>Logout</button>
 				</div>
-				
-			) : (
-				<Link to='/Login'>
-					<p>Login</p>
-				</Link>
-			)}
-		</main>
-	);
+			</main>
+		);
+	}
 };
 
 export default Profile;

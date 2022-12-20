@@ -1,11 +1,11 @@
 import styles from './Login.module.css';
 import { Link } from 'react-router-dom';
 import { useRef, useState, useEffect, useContext } from 'react';
-import AuthContext from './../../context/authProvider';
-import axios from './../../axios';
+import AuthContext from '../../context/authProvider';
+import axios from '../../axios';
 
 const Login = () => {
-	const { setAuth, auth } = useContext(AuthContext);
+	const { setAuth} = useContext(AuthContext);
 	const userRef = useRef();
 	const errRef = useRef();
 
@@ -14,9 +14,6 @@ const Login = () => {
 	const [errMsg, setErrMsg] = useState('');
 	const [success, setSuccess] = useState(false);
 
-	useEffect(() => {
-		// userRef.current.focus();
-	}, []);
 
 	useEffect(() => {
 		setErrMsg('');
@@ -47,7 +44,6 @@ const Login = () => {
 			} else {
 				setErrMsg('Login failed');
 			}
-			errRef.current.focus();
 		}
 	};
 	return (

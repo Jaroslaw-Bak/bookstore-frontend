@@ -1,5 +1,6 @@
 import styles from './Header.module.css';
 import profile from '../../assets/profile.png';
+import user from './../../assets/user.png';
 import cart from '../../assets/cart.png';
 import menu from '../../assets/menu.png';
 import { Link, NavLink } from 'react-router-dom';
@@ -27,29 +28,29 @@ const Header = () => {
 						}`}
 					>
 						<li>
-							<NavLink to='/'>Ksiązki</NavLink>
+							<NavLink to='/Products/books'>Ksiązki</NavLink>
 						</li>
 						<li>
-							<NavLink to='/'>Gry</NavLink>
+							<NavLink to='/Products/games'>Gry</NavLink>
 						</li>
 						<li>
-							<NavLink to='/'>Ebooki</NavLink>
+							<NavLink to='/Products/ebooks'>Ebooki</NavLink>
 						</li>
 						<li>
-							<NavLink to='/'>Promocje</NavLink>
+							<NavLink to='/Products/audiobooks'>Audiobooki</NavLink>
 						</li>
-						<li>
-							<NavLink to='/'>Outlet</NavLink>
-						</li>
+						
 					</ul>
 				</nav>
 
 				<div className={styles.icons}>
 					<div className={styles.icons__profile}>
-						
 						<Link to='/Profile'>
-							{auth.user}
-							<img src={profile} alt='profile icon' />
+							{auth.user ? (
+								<img src={user} alt='profile icon' />
+							) : (
+								<img src={profile} alt='profile icon' />
+							)}
 						</Link>
 						<Link to={'/Cart'}>
 							<img src={cart} alt='cart icon' />
