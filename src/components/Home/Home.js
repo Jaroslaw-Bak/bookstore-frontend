@@ -26,7 +26,9 @@ const Home = ({ allData }) => {
 	return (
 		<div className={styles.home}>
 			<div className={styles.home__baner}>
-				<div className={`${styles.home__baner__element} + ${styles.home__baner__left}`}>
+				<div
+					className={`${styles.home__baner__element} + ${styles.home__baner__left}`}
+				>
 					<h1>Ksiązka tygodnia</h1>
 					<span>
 						Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -36,7 +38,9 @@ const Home = ({ allData }) => {
 						only five centuries, but also the leap into electronic typesetting
 					</span>
 				</div>
-				<div className={`${styles.home__baner__element} + ${styles.home__baner__right}`}>
+				<div
+					className={`${styles.home__baner__element} + ${styles.home__baner__right}`}
+				>
 					<img src={book} alt='book' />
 				</div>
 			</div>

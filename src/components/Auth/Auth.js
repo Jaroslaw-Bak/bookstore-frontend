@@ -1,20 +1,65 @@
 import styles from './Auth.module.css';
 import AuthContext from '../../context/authProvider';
-import { useRef, useState, useEffect, useContext } from 'react';
+import { useRef, useState, useEffect, useContext} from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from './../../axios'
 
 const Auth = () => {
 	const { auth, setAuth } = useContext(AuthContext);
+
 	const [authMode, setAuthMode] = useState('signIn');
+
+	const [user, setUser] = useState('');
+	const [password, setPassword] = useState('');
+	const [errMsg, setErrMsg] = useState('');
+	const [success, setSuccess] = useState(false);
+
+	const navigate = useNavigate()
 
 	const handleAuthMode = () => {
 		setAuthMode(authMode === 'signIn' ? 'signUp' : 'signIn');
 	};
 
+	useEffect(() => {
+		setErrMsg('');
+		success && navigate('/profile')
+		
+	}, [user, password,success]);
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			const response = await axios.post('/users/login', {
+				email: user,
+				password: password,
+			});
+			console.log(response.data);
+			const token = response?.data?.token;
+			setAuth({ user, token });
+			localStorage.setItem('user', user);
+			localStorage.setItem('token', token);
+			setUser('');
+			setPassword('');
+			setSuccess(true);
+		} catch (err) {
+			if (!err?.response) {
+				setErrMsg('No Server Response');
+			} else if (err.response?.status === 400) {
+				setErrMsg('Missing Username or Password');
+			} else if (err.response?.status === 401) {
+				setErrMsg('Unauthorized');
+			} else {
+				setErrMsg('Login failed');
+			}
+		}
+	};
+
 	if (authMode === 'signIn') {
 		return (
 			<div className={styles.auth__form__container}>
-				<form className={styles.auth__form}>
+				<form className={styles.auth__form} onSubmit={handleSubmit}>
 					<div className={styles.auth__form__content}>
+						{errMsg}
 						<h3 className={styles.auth__form__title}>Sign In</h3>
 						<div className='text-center'>
 							Not registered yet?{' '}
@@ -28,6 +73,8 @@ const Auth = () => {
 								type='email'
 								className='form-control mt-1'
 								placeholder='Enter email'
+								value={user}
+								onChange={(e) => setUser(e.target.value)}
 							/>
 						</div>
 						<div className='form-group mt-3'>
@@ -36,6 +83,8 @@ const Auth = () => {
 								type='password'
 								className='form-control mt-1'
 								placeholder='Enter password'
+								onChange={(e) => setPassword(e.target.value)}
+								value={password}
 							/>
 						</div>
 						<div className='d-grid gap-2 mt-3'>
@@ -43,9 +92,7 @@ const Auth = () => {
 								Submit
 							</button>
 						</div>
-						<p className='forgot-password text-right mt-2'>
-							Forgot <a href='#'>password?</a>
-						</p>
+					
 					</div>
 				</form>
 			</div>
@@ -84,7 +131,6 @@ const Auth = () => {
 								Submit
 							</button>
 						</div>
-						
 					</div>
 				</form>
 			</div>

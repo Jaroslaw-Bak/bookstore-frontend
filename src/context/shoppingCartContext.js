@@ -9,8 +9,13 @@ export function ShoppingCartProvider({ children }) {
 		setCartItems([...cartItems, { ...product }]);
 	};
 
+	const removeItemFromCart = (product) => {
+		console.log(product)
+		setCartItems(cartItems.filter(el => el._id === !product._id))
+	}
+
 	return (
-		<ShoppingCartContext.Provider value={{ addToCart, cartItems }}>
+		<ShoppingCartContext.Provider value={{ addToCart, cartItems, removeItemFromCart }}>
 			{children}
 		</ShoppingCartContext.Provider>
 	);

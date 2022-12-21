@@ -23,7 +23,7 @@ const Profile = () => {
 			<main className={styles.wrapper}>
 				<div>
 					{auth.user}
-					<button onClick={() => handleLogout()}>Logout</button>
+					<button className='btn btn-primary' onClick={() => handleLogout()}>Logout</button>
 				</div>
 			</main>
 		);
