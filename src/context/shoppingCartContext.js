@@ -1,9 +1,15 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 export const ShoppingCartContext = createContext({});
 
+const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]')
+
 export function ShoppingCartProvider({ children }) {
-	const [cartItems, setCartItems] = useState([]);
+	const [cartItems, setCartItems] = useState(cartFromLocalStorage);
+
+	useEffect(() => {
+		localStorage.setItem('cart', JSON.stringify(cartItems));
+	},[cartItems]);
 
 	const addToCart = (product) => {
 		const exist = cartItems.find((x) => x._id === product._id);
@@ -33,9 +39,13 @@ export function ShoppingCartProvider({ children }) {
 		setCartItems(cartItems.filter((x) => x._id !== product._id));
 	};
 
+	const clearCart = () => {
+		setCartItems([])
+	}
+
 	return (
 		<ShoppingCartContext.Provider
-			value={{ addToCart, cartItems, removeFromCart, deleteFromCart }}
+			value={{ addToCart, cartItems, removeFromCart, deleteFromCart, clearCart }}
 		>
 			{children}
 		</ShoppingCartContext.Provider>
