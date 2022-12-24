@@ -1,6 +1,6 @@
 import styles from './ProductsPage.module.css';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from './../../axios';
 
 const ProductsPage = () => {
@@ -23,8 +23,7 @@ const ProductsPage = () => {
 
 	useEffect(() => {
 		const filterData = () => {
-			const filteredData =
-				data && data.filter((el) => el.category === category);
+			const filteredData = data && data.filter((el) => el.category === category);
 			console.log(filteredData);
 			setCategoryData(filteredData);
 		};
@@ -37,14 +36,16 @@ const ProductsPage = () => {
 				<div className={styles.row}>
 					{categoryData &&
 						categoryData.map((el) => (
-							<div className={styles.product}>
-								<img src={el.image} alt='' />
-								<div className={styles.product__description}>
-									<p className={styles.product__title}>{el.title}</p>
-									<p className={styles.product__author}>{el.author}</p>
-									<p className={styles.product__price}>{el.price}</p>
+							<Link  styles={{'text-decoration': 'none'}}to={`/SingleProduct/${el._id}`}>
+								<div className={styles.product}>
+									<img src={el.image} alt='' />
+									<div className={styles.product__description}>
+										<p className={styles.product__title}>{el.title}</p>
+										<p className={styles.product__author}>{el.author}</p>
+										<p className={styles.product__price}>${el.price}</p>
+									</div>
 								</div>
-							</div>
+							</Link>
 						))}
 				</div>
 			</div>

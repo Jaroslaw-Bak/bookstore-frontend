@@ -2,44 +2,48 @@ import styles from './SingleProduct.module.css';
 import { useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { ShoppingCartContext } from '../../context/shoppingCartContext';
+import axios from './../../axios';
 
-const SingleProduct = ({ allData }) => {
+const SingleProduct = () => {
 	const [product, setProduct] = useState('');
 	const { id } = useParams();
 	const { addToCart } = useContext(ShoppingCartContext);
 
+	async function getData() {
+		try {
+			const response = await axios.get(`/products/${id}`);
+			console.log(response.data.data.product);
+			setProduct(response.data.data.product);
+		} catch (err) {
+			console.log(err);
+		}
+	}
+
 	useEffect(() => {
-		const filter = () => {
-			const prod = allData && allData.filter((el) => el._id === id);
-			setProduct(prod);
-		};
-		filter();
-	}, [allData, id]);
+		getData();
+	});
 
 	return (
 		product && (
 			<div className={styles.small__container}>
 				<div className={styles.row}>
 					<div className={styles.col__2}>
-						<img src={product[0].image} alt='book' />
+						<img src={product.image} alt='book' />
 					</div>
 					<div className={styles.col__2}>
 						<div>
-							<p className={styles.title}>{product[0].title}</p>
-							<p className={styles.author}>{product[0].author}</p>
+							<p className={styles.title}>{product.title}</p>
+							<p className={styles.author}>{product.author}</p>
 						</div>
 						<div>
-							<span>$40</span>
-							<button
-								onClick={() => addToCart(product[0])}
-								className={styles.button}
-							>
+							<span className={styles.price}>${product.price}</span>
+							<button onClick={() => addToCart(product)} className='btn btn-primary'>
 								Dodaj do koszyka{' '}
 							</button>
 						</div>
 					</div>
 				</div>
-				<p>{product[0].description}</p>
+				<p className={styles.description}>{product.description}</p>
 			</div>
 		)
 	);

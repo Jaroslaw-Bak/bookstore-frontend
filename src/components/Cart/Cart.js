@@ -1,17 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 import { ShoppingCartContext } from '../../context/shoppingCartContext';
-import Item from './Item/Item';
 
 const Cart = () => {
-	const { cartItems } = useContext(ShoppingCartContext);
+	const { cartItems, addToCart, removeFromCart, deleteFromCart} = useContext(ShoppingCartContext);
 	const [total, setTotal] = useState(0);
 
 	useEffect(() => {
 		setTotal(0);
 		const totalPrice = () => {
 			cartItems.map((el) => {
-				setTotal((prevState) => prevState + Number(el.price));
-				return null
+				setTotal((prevState) => prevState + parseInt(Number(el.price) * Number(el.qty)));
+				return null;
 			});
 		};
 		totalPrice();
@@ -22,29 +21,70 @@ const Cart = () => {
 			<div className='container h-100 py-5'>
 				<div className='row d-flex justify-content-center align-items-center h-100'>
 					<div className='col-10'>
-						<div className='d-flex justify-content-between align-items-center mb-4'>
-							<h3 className='fw-normal mb-0 text-black'>Shopping Cart</h3>
-						</div>
-						{cartItems && cartItems.map((el) => <Item {...el} key={el._id} />)}
-						<div class='card mb-4'>
-							<div class='card-body p-4'>
-								<div class='float-end me-5'>
-									<p class='mb-0 me-2 d-flex align-items-center'>
-										<span class='small text-muted me-2'>Order total:</span>{' '}
-										<span class='lead fw-normal'>${total}</span>
-									</p>
+						{cartItems.length > 0 ? (
+							<>
+								<div className='d-flex justify-content-between align-items-center mb-4'>
+									<h3 className='fw-normal mb-0 text-black'>Shopping Cart</h3>
 								</div>
-							</div>
-						</div>
-						<div class='card'>
-							<div class='card-body p-4'>
-								<div class='float-end me-5'>
-									<button type='button' class='btn btn-warning btn-block btn-lg'>
-										Proceed to Pay
-									</button>
+								{cartItems.map((el) => (
+									<div className='card rounded-3 mb-4'>
+										<div className='card-body p-4'>
+											<div className='row d-flex justify-content-between align-items-center'>
+												<div className='col-md-2 col-lg-2 col-xl-2'>
+													<img src={el.image} alt='product' style={{ width: '100%' }} />
+												</div>
+												<div className='col-md-3 col-lg-3 col-xl-3'>
+													<p className='lead fw-normal mb-2'>{el.title}</p>
+													<p className='lead fw-normal mb-2'>{el.author}</p>
+												</div>
+
+												<div class='col-md-3 col-lg-3 col-xl-2 d-flex'>
+													<button onClick={() => removeFromCart(el)} class='btn px-2' >-</button>
+													<input value={el.qty} class='form-control form-control-sm' />
+													<button onClick={() => addToCart(el)} class='btn px-2'>
+														+
+													</button>
+												</div>
+
+												<div className='col-md-3 col-lg-2 col-xl-2 offset-lg-1'>
+													<h5 className='mb-0'>${el.price}</h5>
+												</div>
+												<div className='col-md-1 col-lg-1 col-xl-1 '>
+													<i
+														onClick={() => deleteFromCart(el)}
+														className='bi bi-trash text-danger'
+														style={{ fontSize: 30 }}
+													></i>
+												</div>
+											</div>
+										</div>
+									</div>
+								))}
+								<div className='card mb-4'>
+									<div className='card-body p-4'>
+										<div className='float-end me-5'>
+											<p className='mb-0 me-2 d-flex align-items-center'>
+												<span className='small text-muted me-2'>Order total:</span>{' '}
+												<span className='lead fw-normal'>${total}</span>
+											</p>
+										</div>
+									</div>
 								</div>
+								<div className='card'>
+									<div className='card-body p-4'>
+										<div className='float-end me-5'>
+											<button type='button' className='btn btn-warning btn-block btn-lg'>
+												Proceed to Pay
+											</button>
+										</div>
+									</div>
+								</div>
+							</>
+						) : (
+							<div className='d-flex justify-content-between align-items-center mb-4'>
+								<h3 className='fw-normal mb-0 text-black'>Shopping Cart is Empty</h3>
 							</div>
-						</div>
+						)}
 					</div>
 				</div>
 			</div>

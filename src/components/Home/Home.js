@@ -2,11 +2,26 @@ import styles from './Home.module.css';
 import book from '../../assets/book.jpg';
 import { useEffect, useState } from 'react';
 import Product from './Product/Product';
+import axios from './../../axios';
 
-const Home = ({ allData }) => {
+const Home = () => {
+	const [allData, setData] = useState(null);
 	const [newest, setNewest] = useState('');
 	const [bestseller, setBestseller] = useState('');
 	const [recomended, setRecomended] = useState('');
+
+	async function getData() {
+		try {
+			const response = await axios.get('/products');
+			console.log(response.data.data.products);
+			setData(response.data.data.products);
+		} catch (err) {
+			console.log(err);
+		}
+	}
+	useEffect(() => {
+		getData();
+	}, []);
 
 	useEffect(() => {
 		const filterData = () => {

@@ -2,6 +2,9 @@
 	max-width: 1080px;
 	margin: 100px auto;
 	padding: 0 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .row {
 	display: flex;
@@ -16,21 +19,24 @@
 	min-width: 200px;
 	max-width: 250px;
 }
+
+
 .title {
 	font-size: 2rem;
+	font-weight: 500;
 }
 .author {
 	font-size: 1.6rem;
+	font-weight: 300;
 	color: gray;
+	margin-bottom: 2rem;
+}
+.price {
+	margin-right: 2rem;
+	
 }
 
-.button {
-	display: inline-block;
-	background: darkcyan;
-	color: white;
-	padding: 9px 28px;
-	border-radius: 20px;
-	transition: background 0.5s;
-	border: none;
-	margin-left: 1rem;
+.description {
+	margin-top: 2rem;
+	max-width: 600px;
 }
