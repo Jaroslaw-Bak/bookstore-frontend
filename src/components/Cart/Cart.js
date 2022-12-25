@@ -38,10 +38,10 @@ const Cart = () => {
 													<p className='lead fw-normal mb-2'>{el.author}</p>
 												</div>
 
-												<div class='col-md-3 col-lg-3 col-xl-2 d-flex'>
-													<button onClick={() => removeFromCart(el)} class='btn px-2' >-</button>
-													<input value={el.qty} class='form-control form-control-sm' />
-													<button onClick={() => addToCart(el)} class='btn px-2'>
+												<div className='col-md-3 col-lg-3 col-xl-2 d-flex'>
+													<button onClick={() => removeFromCart(el)} className='btn px-2' >-</button>
+													<input value={el.qty} className='form-control form-control-sm' />
+													<button onClick={() => addToCart(el)} className='btn px-2'>
 														+
 													</button>
 												</div>

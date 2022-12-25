@@ -1,11 +1,11 @@
-import styles from './Auth.module.css';
+import styles from './Login.module.css';
 import AuthContext from '../../context/authProvider';
-import { useRef, useState, useEffect, useContext} from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from './../../axios'
+import axios from '../../axios';
 
 const Auth = () => {
-	const { auth, setAuth } = useContext(AuthContext);
+	const { setAuth } = useContext(AuthContext);
 
 	const [authMode, setAuthMode] = useState('signIn');
 
@@ -14,7 +14,7 @@ const Auth = () => {
 	const [errMsg, setErrMsg] = useState('');
 	const [success, setSuccess] = useState(false);
 
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	const handleAuthMode = () => {
 		setAuthMode(authMode === 'signIn' ? 'signUp' : 'signIn');
@@ -22,11 +22,10 @@ const Auth = () => {
 
 	useEffect(() => {
 		setErrMsg('');
-		success && navigate('/profile')
-		
-	}, [user, password,success]);
+		success && navigate('/profile');
+	}, [user, password, success,navigate]);
 
-	const handleSubmit = async (e) => {
+	const handleLogin = async (e) => {
 		e.preventDefault();
 		try {
 			const response = await axios.post('/users/login', {
@@ -57,7 +56,7 @@ const Auth = () => {
 	if (authMode === 'signIn') {
 		return (
 			<div className={styles.auth__form__container}>
-				<form className={styles.auth__form} onSubmit={handleSubmit}>
+				<form className={styles.auth__form} onSubmit={handleLogin}>
 					<div className={styles.auth__form__content}>
 						{errMsg}
 						<h3 className={styles.auth__form__title}>Sign In</h3>
@@ -92,7 +91,6 @@ const Auth = () => {
 								Submit
 							</button>
 						</div>
-					
 					</div>
 				</form>
 			</div>

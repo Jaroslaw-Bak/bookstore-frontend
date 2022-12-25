@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import AuthContext from '../../context/authProvider';
 import { ShoppingCartContext } from '../../context/shoppingCartContext';
+import userProfilePicture from './../../assets/userProfilePicture.png';
 
 const Profile = () => {
 	const { auth, setAuth } = useContext(AuthContext);
 	const navigate = useNavigate();
-	const { clearCart} = useContext(ShoppingCartContext);
+	const { clearCart } = useContext(ShoppingCartContext);
 
 	const handleLogout = () => {
 		setAuth(false);
@@ -24,10 +25,11 @@ const Profile = () => {
 	if (auth.user) {
 		return (
 			<main className={styles.wrapper}>
-				<div>
-					{auth.user}
-					<button className='btn btn-primary' onClick={() => handleLogout()}>Logout</button>
-				</div>
+				<img src={userProfilePicture} alt='user profile ' />
+				<div>{auth.user}</div>
+				<button className='btn btn-primary' onClick={() => handleLogout()}>
+					Logout
+				</button>
 			</main>
 		);
 	}
