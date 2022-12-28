@@ -1,7 +1,6 @@
 .home__baner {
 	display: flex;
 	flex-wrap: wrap;
-	background-color: burlywood;
 	padding: 2rem
 }
 .home__baner__element {

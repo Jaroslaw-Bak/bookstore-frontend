@@ -1,6 +1,9 @@
 import axios from './../../axios';
 import { useState } from 'react';
-import styles from './AddProduct.module.css';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 const AddProduct = () => {
 	const [title, setTitle] = useState('');
@@ -41,120 +44,109 @@ const AddProduct = () => {
 	};
 
 	return (
-		<div className={styles.wrapper}>
-			<form onSubmit={handleSubmit}>
-				<div className='form-group'>
-					<label>
-						Title
-						<input
-							value={title}
-							onChange={(e) => setTitle(e.target.value)}
-							type='text'
-							className='form-control'
-							placeholder='Enter title'
-						/>
-					</label>
-				</div>
-				<div className='form-group'>
-					<label>
-						Author
-						<input
-							value={author}
-							onChange={(e) => setAuthor(e.target.value)}
-							type='text'
-							className='form-control'
-							placeholder='Enter author'
-						/>
-					</label>
-				</div>
-				<div className='form-group'>
-					<label>
-						Price
-						<input
-							value={price}
-							onChange={(e) => setPrice(e.target.value)}
-							type='text'
-							className='form-control'
-							placeholder='Enter price'
-						/>
-					</label>
-				</div>
-				<div className='form-group'>
-					<label>
-						Category
-						<select
+		<Form onSubmit={handleSubmit}>
+			<Row className='mb-3'>
+				<Form.Group as={Col}>
+					<Form.Label>Title</Form.Label>
+					<Form.Control
+						value={title}
+						size='sm'
+						onChange={(e) => setTitle(e.target.value)}
+						type='text'
+						placeholder='Enter title'
+					></Form.Control>
+				</Form.Group>
+				<Form.Group as={Col}>
+					<Form.Label>Author</Form.Label>
+					<Form.Control
+						size='sm'
+						value={author}
+						onChange={(e) => setAuthor(e.target.value)}
+						type='text'
+						placeholder='Enter author'
+					></Form.Control>
+				</Form.Group>
+				<Form.Group as={Col}>
+					<Form.Label>Price</Form.Label>
+					<Form.Control
+						size='sm'
+						value={price}
+						onChange={(e) => setPrice(e.target.value)}
+						type='text'
+						placeholder='Enter price'
+					></Form.Control>
+				</Form.Group>
+			</Row>
+			<Row className='mb-3'>
+				<Col sm='4'>
+					<Form.Group>
+						<Form.Label>Price</Form.Label>
+						<Form.Select
+							size='sm'
 							value={category}
 							onChange={(e) => setCategory(e.target.value)}
-							className='form-control'
 						>
 							<option value='books'>Books</option>
 							<option value='games'>Games</option>
 							<option value='ebooks'>Ebooks</option>
 							<option value='audiobooks'>Audiobooks</option>
-						</select>
-					</label>
-				</div>
-				<div className='form-group'>
-					<label>
-						Image
-						<input
+						</Form.Select>
+					</Form.Group>
+				</Col>
+				<Col>
+					<Form.Group>
+						<Form.Label>Image</Form.Label>
+						<Form.Control
+							size='sm'
 							value={imgUrl}
 							onChange={(e) => setImgUrl(e.target.value)}
 							type='text'
-							className='form-control'
-							placeholder='Enter image url'
-						/>
-					</label>
-				</div>
-				<div className='form-group'>
-					<label>
-						Description
-						<textarea
-							value={description}
-							onChange={(e) => setDescription(e.target.value)}
-							className='form-control'
-							rows='3'
-						/>
-					</label>
-				</div>
-				<div className='form-check'>
-					<label className='form-check-label'>
-						Bestseller
-						<input
-							type='checkbox'
-							checked={bestseller}
-							onChange={(e) => setBestseller(!bestseller)}
-							className='form-check-input'
-						/>
-					</label>
-				</div>
-				<div className='form-check'>
-					<label className='form-check-label'>
-						Newest
-						<input
-							type='checkbox'
-							checked={newest}
-							onChange={(e) => setNewest(!newest)}
-							className='form-check-input'
-						/>
-					</label>
-				</div>
-				<div className='form-check'>
-					<label className='form-check-label'>
-						Recomended
-						<input
-							type='checkbox'
-							checked={recomended}
-							onChange={(e) => setRecomended(!recomended)}
-							className='form-check-input'
-						/>
-					</label>
-				</div>
-				<button type='submit' className='btn btn-warning'>
-					Submit
-				</button>
-			</form>
-		</div>
+							placeholder='Enter Image Url'
+						></Form.Control>
+					</Form.Group>
+				</Col>
+			</Row>
+			<Row>
+				<Form.Group className='mb-3'>
+					<Form.Label>Description</Form.Label>
+					<Form.Control
+						value={description}
+						onChange={(e) => setDescription(e.target.value)}
+						as='textarea'
+						rows={3}
+					/>
+				</Form.Group>
+			</Row>
+			<Row className='mb-3'>
+				<Form.Group className='mb-1'>
+					<Form.Check
+						checked={bestseller}
+						onChange={(e) => setBestseller(!bestseller)}
+						type='checkbox'
+						label='Bestseller'
+					/>
+				</Form.Group>
+				<Form.Group className='mb-1'>
+					<Form.Check
+						checked={newest}
+						onChange={(e) => setNewest(!newest)}
+						type='checkbox'
+						label='Newest'
+					/>
+				</Form.Group>
+				<Form.Group className='mb-1'>
+					<Form.Check
+						checked={recomended}
+						onChange={(e) => setRecomended(!recomended)}
+						type='checkbox'
+						label='Recomended'
+					/>
+				</Form.Group>
+			</Row>
+			<Button type='submit' className='btn-warning'>
+				Submit form
+			</Button>
+		</Form>
 	);
 };
 

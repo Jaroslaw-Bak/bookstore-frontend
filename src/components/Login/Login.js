@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from '../../axios';
 
 const Auth = () => {
-	const { setAuth } = useContext(AuthContext);
+	const { auth, setAuth } = useContext(AuthContext);
 
 	const [authMode, setAuthMode] = useState('signIn');
 
@@ -39,7 +39,8 @@ const Auth = () => {
 			localStorage.setItem('token', token);
 			setUser('');
 			setPassword('');
-			setSuccess(true);
+			setSuccess(true)
+			auth && console.log(auth)
 		} catch (err) {
 			if (!err?.response) {
 				setErrMsg('No Server Response');
