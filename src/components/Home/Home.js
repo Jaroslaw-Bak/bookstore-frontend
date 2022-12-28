@@ -40,27 +40,27 @@ const Home = () => {
 
 	return (
 		<div className={styles.home}>
-			<div className={styles.home__baner}>
-				<div
-					className={`${styles.home__baner__element} + ${styles.home__baner__left}`}
-				>
-					<h1>Ksiązka tygodnia</h1>
-					<span>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry's standard dummy text
-						ever since the 1500s, when an unknown printer took a galley of type
-						and scrambled it to make a type specimen book. It has survived not
-						only five centuries, but also the leap into electronic typesetting
-					</span>
-				</div>
-				<div
-					className={`${styles.home__baner__element} + ${styles.home__baner__right}`}
-				>
-					<img src={book} alt='book' />
-				</div>
-			</div>
-
 			<div className={styles.small__container}>
+				<div className={styles.home__baner}>
+					<div
+						className={`${styles.home__baner__element} + ${styles.home__baner__left}`}
+					>
+						<h1>Ksiązka tygodnia</h1>
+						<span>
+							Lorem Ipsum is simply dummy text of the printing and typesetting
+							industry. Lorem Ipsum has been the industry's standard dummy text ever
+							since the 1500s, when an unknown printer took a galley of type and
+							scrambled it to make a type specimen book. It has survived not only five
+							centuries, but also the leap into electronic typesetting
+						</span>
+					</div>
+					<div
+						className={`${styles.home__baner__element} + ${styles.home__baner__right}`}
+					>
+						<img src={book} alt='book' />
+					</div>
+				</div>
+
 				<h2>Nowości</h2>
 				<div className={styles.row}>
 					{console.log(newest)}
