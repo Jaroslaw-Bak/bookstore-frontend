@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { ShoppingCartProvider } from './context/shoppingCartContext';
-import Auth from './components/Login/Login';
+import Login from './components/Login/Login';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import SingleProduct from './components/SingleProduct/SingleProduct';
@@ -22,7 +22,7 @@ function App() {
 				<Route path='SingleProduct/:id' element={<SingleProduct />} />
 				<Route path='Cart' element={<Cart />} />
 				<Route path='Profile' element={<Profile />} />
-				<Route path='Auth' element={<Auth />} />
+				<Route path='Login' element={<Login />} />
 				<Route path='Products/:category' element={<ProductsPage />} />
 				<Route path='admin' element={<Admin />}>
 					<Route path='addProduct' element={<AddProduct />} />
