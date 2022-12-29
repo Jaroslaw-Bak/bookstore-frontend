@@ -27,6 +27,7 @@ const Profile = () => {
 			<main className={styles.wrapper}>
 				<img src={userProfilePicture} alt='user profile ' />
 				<div>{auth.user}</div>
+				{console.log(auth)}
 				<button className='btn btn-primary' onClick={() => handleLogout()}>
 					Logout
 				</button>

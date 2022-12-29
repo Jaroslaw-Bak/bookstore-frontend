@@ -24,7 +24,7 @@ const Cart = () => {
 						{cartItems.length > 0 ? (
 							<>
 								<div className='d-flex justify-content-between align-items-center mb-4'>
-									<h3 className='fw-normal mb-0 text-black'>Shopping Cart</h3>
+									<h3 className='fw-normal mb-0 text-black'>Koszyk</h3>
 								</div>
 								{cartItems.map((el) => (
 									<div className='card rounded-3 mb-4'>
@@ -64,7 +64,7 @@ const Cart = () => {
 									<div className='card-body p-4'>
 										<div className='float-end me-5'>
 											<p className='mb-0 me-2 d-flex align-items-center'>
-												<span className='small text-muted me-2'>Order total:</span>{' '}
+												<span className='small text-muted me-2'>Wartość całkowita</span>{' '}
 												<span className='lead fw-normal'>${total}</span>
 											</p>
 										</div>
@@ -74,7 +74,7 @@ const Cart = () => {
 									<div className='card-body p-4'>
 										<div className='float-end me-5'>
 											<button type='button' className='btn btn-warning btn-block btn-lg'>
-												Proceed to Pay
+												Płatności
 											</button>
 										</div>
 									</div>
@@ -82,7 +82,7 @@ const Cart = () => {
 							</>
 						) : (
 							<div className='d-flex justify-content-between align-items-center mb-4'>
-								<h3 className='fw-normal mb-0 text-black'>Shopping Cart is Empty</h3>
+								<h3 className='fw-normal mb-0 text-black'>Koszyk jest pusty</h3>
 							</div>
 						)}
 					</div>

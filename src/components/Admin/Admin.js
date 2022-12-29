@@ -1,7 +1,14 @@
 import styles from './Admin.module.css';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, Navigate } from 'react-router-dom';
 
 const Admin = () => {
+	const isAuthenticated = localStorage.getItem('user');
+
+	if (isAuthenticated !== 'shopAdmin@gmail.com') {
+		console.log('notAuthenticated');
+		return <Navigate to='/Login' replace />;
+	}
+
 	return (
 		<div className={styles.wrapper}>
 			<h1>Admin Page</h1>
