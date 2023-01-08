@@ -36,7 +36,7 @@ const SingleProduct = () => {
 							<p className={styles.author}>{product.author}</p>
 						</div>
 						<div>
-							<span className={styles.price}>${product.price}</span>
+							<span className={styles.price}>{product.price} zł</span>
 							<button onClick={() => addToCart(product)} className='btn btn-primary'>
 								Dodaj do koszyka{' '}
 							</button>
@@ -50,3 +50,4 @@ const SingleProduct = () => {
 };
 
 export default SingleProduct;
+

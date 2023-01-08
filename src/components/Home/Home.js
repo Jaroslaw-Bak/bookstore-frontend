@@ -45,13 +45,11 @@ const Home = () => {
 					<div
 						className={`${styles.home__baner__element} + ${styles.home__baner__left}`}
 					>
-						<h1>Ksiązka tygodnia</h1>
-						<span>
-							Lorem Ipsum is simply dummy text of the printing and typesetting
-							industry. Lorem Ipsum has been the industry's standard dummy text ever
-							since the 1500s, when an unknown printer took a galley of type and
-							scrambled it to make a type specimen book. It has survived not only five
-							centuries, but also the leap into electronic typesetting
+						<h1>Książka tygodnia</h1>
+						<span className={styles.home__baner__description}>
+							Światowa sensacja, bijący wszelkie rekordy fenomen, który przykuł uwagę
+							ponad 13 milionów czytelników.
+							„Gdzie śpiewają raki” to wysmakowana oda do świata przyrody, wzruszająca fabuła o dojrzewaniu i zaskakująca relacja z procesu.
 						</span>
 					</div>
 					<div

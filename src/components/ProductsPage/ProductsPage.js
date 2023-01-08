@@ -42,7 +42,7 @@ const ProductsPage = () => {
 									<div className={styles.product__description}>
 										<p className={styles.product__title}>{el.title}</p>
 										<p className={styles.product__author}>{el.author}</p>
-										<p className={styles.product__price}>${el.price}</p>
+										<p className={styles.product__price}>{el.price} zł</p>
 									</div>
 								</div>
 							</Link>

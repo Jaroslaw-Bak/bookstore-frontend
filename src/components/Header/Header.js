@@ -1,4 +1,5 @@
 import styles from './Header.module.css';
+import logo from './../../assets/logo.png'
 import profile from '../../assets/profile.png';
 import user from './../../assets/user.png';
 import cart from '../../assets/cart.png';
@@ -16,10 +17,10 @@ const Header = () => {
 
 	return (
 		<div>
-			<div className={styles.baner}>baner</div>
+			<div className={styles.baner}></div>
 			<div className={styles.header}>
 				<Link to='/'>
-					<div>Logo</div>
+					<img className={styles.logo} src={logo} alt='logo' />
 				</Link>
 				<nav onClick={() => setActive(true)}>
 					<ul
@@ -28,7 +29,7 @@ const Header = () => {
 						}`}
 					>
 						<li>
-							<NavLink to='/Products/books'>Ksiązki</NavLink>
+							<NavLink to='/Products/books'>Książki</NavLink>
 						</li>
 						<li>
 							<NavLink to='/Products/games'>Gry</NavLink>

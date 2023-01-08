@@ -51,3 +51,4 @@ export function ShoppingCartProvider({ children }) {
 		</ShoppingCartContext.Provider>
 	);
 }
+

@@ -2,22 +2,23 @@
 	display: flex;
 	justify-content: center;
 	font-weight: bold;
-	background-color: BLACK;
+	background-color: #19323c;
 	color: white;
-	padding: 0.8rem 0;
+	height: 1rem;
 	font-size: 0.8rem;
 }
 
 .header {
-	font-size: 1.4rem;
+	font-size: 1.3rem;
 	font-weight: 600;
-	min-height: 80px;
+	min-height: 60px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 1rem;
-	border-bottom: 1px solid black;
+	padding: 0 2rem;
+	border-bottom: 1px solid #19323c;;
+	
 }
 
 .categories {
@@ -25,6 +26,7 @@
 	flex-direction: row;
 	justify-content: space-between;
 	list-style-type: none;
+	align-items: flex-end;
 }
 
 .categories li {
@@ -32,7 +34,6 @@
 }
 .categories a {
 	text-decoration: none;
-	color: black;
 }
 .icons {
 	display: flex;
@@ -45,12 +46,15 @@
 }
 
 .icons__profile img {
-	width: 25px;
-	height: 25px;
+	width: 30px;
 	margin-left: 1rem;
 }
 .icons__profile__menu {
 	display: none;
+}
+
+.logo {
+	width: 60px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -58,14 +62,14 @@
 		display: block;
 		text-align: center;
 		position: absolute;
-		top: 100px;
+		top: 77px;
 		right: 0;
 		width: 100%;
-		background-color: black;
+		background-color: #19323c;
 	}
-    .categories__off {
-        visibility: hidden;
-    }
+	.categories__off {
+		visibility: hidden;
+	}
 	.categories > li {
 		height: 30px;
 	}
@@ -73,7 +77,8 @@
 		text-decoration: none;
 		color: white;
 	}
-    .icons__profile__menu {
-        display: block;
-    }
+	.icons__profile__menu {
+		display: block;
+		
+	}
 }

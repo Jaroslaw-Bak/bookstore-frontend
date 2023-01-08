@@ -1,21 +1,42 @@
+.home {
+	padding-top: 7rem;
+}
+.home h1 {
+	font-size: 1.8rem;
+	margin-bottom: 2rem;
+}
 .home__baner {
 	display: flex;
 	flex-wrap: wrap;
-	padding: 2rem
+	margin-bottom: 7rem;
 }
 .home__baner__element {
 	display: flex;
 	flex-basis: 50%;
 	justify-content: center;
 	align-items: center;
-	min-width: 250px;
+	min-width: 200px;
 }
 .home__baner__left {
+	padding-left: 5rem;
+	padding-top: 5rem;
 	flex-direction: column;
+}
+.home__baner__left:first-child {
+	margin-bottom: 1rem;
+	align-items: flex-start;
+
 }
 
 .home__baner__right img {
 	max-width: 100%;
+	max-width: 180px;
+	box-shadow: 30px 30px  #618985;
+}
+
+.home__baner__description {
+	
+	max-width: 370px;
 }
 .small__container {
 	max-width: 1080px;
@@ -25,7 +46,6 @@ h2 {
 	width: 250px;
 	margin: auto;
 	text-align: center;
-	color: #626267;
 	margin-bottom: 60px;
 	margin-top: 50px;
 	font-weight: bold;
@@ -43,9 +63,13 @@ h2 {
 
 @media only screen and (max-width: 600px) {
 	.home__baner__element {
-		flex-basis: 100%;	
+		flex-basis: 100%;
+		justify-content: center;
+		align-items: center;
 	}
 	.home__baner__left {
 		margin-bottom: 2rem;
+		padding: auto;
 	}
+	
 }

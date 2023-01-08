@@ -107,7 +107,7 @@ const Login = () => {
 								value={password}
 							/>
 						</div>
-						<div className='d-grid gap-2 mt-3'>
+						<div className='d-grid gap-2 mt-4'>
 							<button type='submit' className='btn btn-primary'>
 								Zaloguj
 							</button>
