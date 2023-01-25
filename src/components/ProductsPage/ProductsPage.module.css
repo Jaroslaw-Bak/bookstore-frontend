@@ -14,6 +14,7 @@
 .row img {
 	width: 100%;
 	width: 140px;
+	height: 180px;
 	
 }
 
@@ -50,7 +51,7 @@
 @media only screen and (max-width: 500px) {
 	.row img {
 		width: 170px;
-		
+		height: 140px;
 	}
 	
 }
