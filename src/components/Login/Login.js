@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from '../../axios';
 
 const Login = () => {
-	const { auth, setAuth } = useContext(AuthContext);
+	const {setAuth } = useContext(AuthContext);
 
 	const [authMode, setAuthMode] = useState('signIn');
 
@@ -36,7 +36,6 @@ const Login = () => {
 				email: user,
 				password: password,
 			});
-			console.log(response.data);
 			const token = response?.data?.token;
 			setAuth({ user, token });
 			localStorage.setItem('user', user);
@@ -44,7 +43,6 @@ const Login = () => {
 			setUser('');
 			setPassword('');
 			setSuccess(true);
-			auth && console.log(auth);
 		} catch (err) {
 			if (!err?.response) {
 				setErrMsg('No Server Response');
@@ -61,13 +59,17 @@ const Login = () => {
 	const handleRegister = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post('/users/signup', {
+			await axios.post('/users/signup', {
 				email: newUser,
 				password: newPassword,
 				passwordConfirm: confirmNewPassword,
 			});
-			console.log(response.data)
-			setRegisterMessage('Zarejestrowano')
+			setRegisterMessage('Zarejestrowan')
+			setNewUser('');
+			setNewPassword('');
+			setConfirmNewPassword('')
+			setAuthMode('signIn')
+			navigate('/Login')
 		} catch (err) {
 			console.log(err);
 			setRegisterMessage('Błąd rejestracji')

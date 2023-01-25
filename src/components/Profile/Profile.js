@@ -4,6 +4,7 @@ import { useContext, useEffect } from 'react';
 import AuthContext from '../../context/authProvider';
 import { ShoppingCartContext } from '../../context/shoppingCartContext';
 import userProfilePicture from './../../assets/userProfilePicture.png';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
 	const { auth, setAuth } = useContext(AuthContext);
@@ -22,12 +23,26 @@ const Profile = () => {
 		}
 	});
 
+	if (auth.user === 'shopAdmin@gmail.com') {
+		return (
+			<main className={styles.wrapper}>
+				<Link to='/admin'>
+					<button className='btn btn-primary mb-4'>
+						Strona administatora
+					</button>
+				</Link>
+				<button className='btn btn-primary' onClick={() => handleLogout()}>
+					Wyloguj
+				</button>
+			</main>
+		);
+	}
+
 	if (auth.user) {
 		return (
 			<main className={styles.wrapper}>
 				<img src={userProfilePicture} alt='user profile ' />
 				<div>{auth.user}</div>
-				{console.log(auth)}
 				<button className='btn btn-primary' onClick={() => handleLogout()}>
 					Logout
 				</button>

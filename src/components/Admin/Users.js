@@ -13,9 +13,10 @@ const Users = () => {
 
 	async function deleteUser(_id) {
 		try {
+			const tempUsers = [...users].filter(user => user._id !== _id);
 			const response = await axios.delete(`/users/${_id}`);
-			const data = response.data;
-			console.log(data);
+			console.log(response)
+			setUsers(tempUsers)
 		} catch (err) {
 			console.log(err);
 		}
