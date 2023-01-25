@@ -1,7 +1,6 @@
 import styles from './Header.module.css';
-import logo from './../../assets/logo.png'
+import logo from './../../assets/logo.png';
 import profile from '../../assets/profile.png';
-import user from './../../assets/user.png';
 import cart from '../../assets/cart.png';
 import menu from '../../assets/menu.png';
 import { Link, NavLink } from 'react-router-dom';
@@ -24,9 +23,7 @@ const Header = () => {
 				</Link>
 				<nav onClick={() => setActive(true)}>
 					<ul
-						className={`${styles.categories} + ${
-							isActive && styles.categories__off
-						}`}
+						className={`${styles.categories} + ${isActive && styles.categories__off}`}
 					>
 						<li>
 							<NavLink to='/Products/books'>Książki</NavLink>
@@ -40,18 +37,13 @@ const Header = () => {
 						<li>
 							<NavLink to='/Products/audiobooks'>Audiobooki</NavLink>
 						</li>
-						
 					</ul>
 				</nav>
 
 				<div className={styles.icons}>
 					<div className={styles.icons__profile}>
 						<Link to='/Profile'>
-							{auth.user ? (
-								<img src={user} alt='profile icon' />
-							) : (
-								<img src={profile} alt='profile icon' />
-							)}
+							<img src={profile} alt='profile icon' />
 						</Link>
 						<Link to={'/Cart'}>
 							<img src={cart} alt='cart icon' />

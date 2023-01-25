@@ -43,11 +43,11 @@ const Cart = () => {
 												</div>
 
 												<div className='col-md-3 col-lg-3 col-xl-2 d-flex'>
-													<button onClick={() => removeFromCart(el)} className='btn px-2'>
+													<button onClick={() => removeFromCart(el)} className='btn px-2 text-white'>
 														-
 													</button>
 													<input value={el.qty} className='form-control form-control-sm' />
-													<button onClick={() => addToCart(el)} className='btn px-2'>
+													<button onClick={() => addToCart(el)} className='btn px-2 text-white'>
 														+
 													</button>
 												</div>
@@ -80,7 +80,7 @@ const Cart = () => {
 									<div className='card-body p-4'>
 										<div className='float-end me-5'>
 											<Link to='/Checkout'>
-												<button type='button' className='btn btn-warning btn-block btn-lg'>
+												<button type='button' className='btn btn-warning text-white btn-block btn-lg'>
 													Płatności
 												</button>
 											</Link>

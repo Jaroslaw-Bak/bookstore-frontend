@@ -28,3 +28,8 @@ a:active {
 ul { 
 	margin-bottom: 0;
 }
+
+button {
+	background-color:  #D34E24 !important;
+	border-color: #D34E24 !important;
+}
