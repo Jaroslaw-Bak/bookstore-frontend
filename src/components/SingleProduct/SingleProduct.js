@@ -8,7 +8,7 @@ const SingleProduct = () => {
 	const [product, setProduct] = useState('');
 	const { id } = useParams();
 	const { addToCart } = useContext(ShoppingCartContext);
-	
+
 	useEffect(() => {
 		async function getData() {
 			try {
@@ -20,7 +20,7 @@ const SingleProduct = () => {
 			}
 		}
 		getData();
-	});
+	}, [id, product]);
 
 	return (
 		product && (
