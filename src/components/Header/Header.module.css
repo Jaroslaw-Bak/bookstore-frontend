@@ -71,7 +71,9 @@
 		visibility: hidden;
 	}
 	.categories > li {
-		height: 30px;
+		height: 40px;
+		font-size: 1.6rem;
+		
 	}
 	.categories a {
 		text-decoration: none;
