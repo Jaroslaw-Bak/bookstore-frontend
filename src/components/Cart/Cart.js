@@ -1,15 +1,19 @@
 import { useContext, useEffect, useState } from 'react';
 import { ShoppingCartContext } from '../../context/shoppingCartContext';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-	const { cartItems, addToCart, removeFromCart, deleteFromCart} = useContext(ShoppingCartContext);
+	const { cartItems, addToCart, removeFromCart, deleteFromCart } =
+		useContext(ShoppingCartContext);
 	const [total, setTotal] = useState(0);
 
 	useEffect(() => {
 		setTotal(0);
 		const totalPrice = () => {
 			cartItems.map((el) => {
-				setTotal((prevState) => prevState + parseInt(Number(el.price) * Number(el.qty)));
+				setTotal(
+					(prevState) => prevState + parseInt(Number(el.price) * Number(el.qty))
+				);
 				return null;
 			});
 		};
@@ -39,7 +43,9 @@ const Cart = () => {
 												</div>
 
 												<div className='col-md-3 col-lg-3 col-xl-2 d-flex'>
-													<button onClick={() => removeFromCart(el)} className='btn px-2' >-</button>
+													<button onClick={() => removeFromCart(el)} className='btn px-2'>
+														-
+													</button>
 													<input value={el.qty} className='form-control form-control-sm' />
 													<button onClick={() => addToCart(el)} className='btn px-2'>
 														+
@@ -73,9 +79,11 @@ const Cart = () => {
 								<div className='card'>
 									<div className='card-body p-4'>
 										<div className='float-end me-5'>
-											<button type='button' className='btn btn-warning btn-block btn-lg'>
-												Płatności
-											</button>
+											<Link to='/Checkout'>
+												<button type='button' className='btn btn-warning btn-block btn-lg'>
+													Płatności
+												</button>
+											</Link>
 										</div>
 									</div>
 								</div>

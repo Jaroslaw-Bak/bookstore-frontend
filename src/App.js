@@ -7,11 +7,11 @@ import Home from './components/Home/Home';
 import SingleProduct from './components/SingleProduct/SingleProduct';
 import Cart from './components/Cart/Cart';
 import Profile from './components/Profile/Profile';
-import Footer from './components/Footer/Footer';
 import ProductsPage from './components/ProductsPage/ProductsPage';
 import Admin from './components/Admin/Admin';
 import AddProduct from './components/Admin/AddProduct';
 import Users from './components/Admin/Users';
+import Checkout from './components/Checkout/Checkout';
 
 function App() {
 	return (
@@ -28,8 +28,8 @@ function App() {
 					<Route path='addProduct' element={<AddProduct />} />
 					<Route path='users' element={<Users />} />
 				</Route>
+				<Route path='Checkout'  element={<Checkout/>} />
 			</Routes>
-			<Footer />
 		</ShoppingCartProvider>
 	);
 }
