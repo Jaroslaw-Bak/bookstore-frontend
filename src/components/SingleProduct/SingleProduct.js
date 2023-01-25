@@ -9,19 +9,19 @@ const SingleProduct = () => {
 	const { id } = useParams();
 	const { addToCart } = useContext(ShoppingCartContext);
 
-	async function getData() {
-		try {
-			const response = await axios.get('/products/'+ id);
-			console.log(response.data.data.product);
-			setProduct(response.data.data.product);
-		} catch (err) {
-			console.log(err);
-		}
-	}
-
 	useEffect(() => {
+		async function getData() {
+			try {
+				const response = await axios.get('/products/' + id);
+				console.log(response.data.data.product);
+				setProduct(response.data.data.product);
+			} catch (err) {
+				console.log(err);
+			}
+		}
+
 		getData();
-	},[]);
+	}, [id]);
 
 	return (
 		product && (
@@ -50,4 +50,3 @@ const SingleProduct = () => {
 };
 
 export default SingleProduct;
-
