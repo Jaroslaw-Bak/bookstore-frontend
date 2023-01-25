@@ -20,7 +20,7 @@ const SingleProduct = () => {
 			}
 		}
 		getData();
-	}, [id]);
+	});
 
 	return (
 		product && (
