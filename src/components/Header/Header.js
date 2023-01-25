@@ -4,12 +4,11 @@ import profile from '../../assets/profile.png';
 import cart from '../../assets/cart.png';
 import menu from '../../assets/menu.png';
 import { Link, NavLink } from 'react-router-dom';
-import { useState, useContext } from 'react';
-import AuthContext from './../../context/authProvider';
+import { useState } from 'react';
+
 
 const Header = () => {
 	const [isActive, setActive] = useState(true);
-	const { auth } = useContext(AuthContext);
 	const toggleMenu = () => {
 		setActive(!isActive);
 	};

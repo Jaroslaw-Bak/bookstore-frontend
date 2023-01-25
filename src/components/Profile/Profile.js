@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import AuthContext from '../../context/authProvider';
 import { ShoppingCartContext } from '../../context/shoppingCartContext';
-import userProfilePicture from './../../assets/userProfilePicture.png';
 import { Link } from 'react-router-dom';
 import profile from '../../assets/profile.png';
 
