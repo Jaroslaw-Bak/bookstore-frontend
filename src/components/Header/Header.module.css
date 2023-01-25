@@ -84,4 +84,7 @@
 		display: block;
 		
 	}
+	.categories li {
+		margin-left: 0;
+	}
 }
