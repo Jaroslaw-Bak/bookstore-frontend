@@ -35,9 +35,9 @@
 }
 
 .home__baner__description {
-	
 	max-width: 370px;
 }
+
 .small__container {
 	max-width: 1080px;
 	margin: auto;
@@ -62,14 +62,22 @@ h2 {
 }
 
 @media only screen and (max-width: 600px) {
+
 	.home__baner__element {
 		flex-basis: 100%;
 		justify-content: center;
 		align-items: center;
 	}
 	.home__baner__left {
-		margin-bottom: 2rem;
-		padding: auto;
+		padding-top: 2rem;
+		padding-left: 0;
+		padding-bottom: 2rem;
 	}
+	.home {
+		padding-top: 0rem;
+	}
+	.home__baner__left:first-child {
+		align-items: center;
 	
+	}
 }
