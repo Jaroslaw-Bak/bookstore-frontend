@@ -61,7 +61,7 @@ const Home = () => {
 
 				<h2>Nowości</h2>
 				<div className={styles.row}>
-					{console.log(newest)}
+					{newest && console.log(newest)}
 					{newest ? (
 						newest.map((el) => <Product key={el._id} {...el} />)
 					) : (
