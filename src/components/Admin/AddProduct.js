@@ -95,13 +95,13 @@ const AddProduct = () => {
 				</Col>
 				<Col>
 					<Form.Group>
-						<Form.Label>Image</Form.Label>
+						<Form.Label>Zdjęcie</Form.Label>
 						<Form.Control
 							size='sm'
 							value={imgUrl}
 							onChange={(e) => setImgUrl(e.target.value)}
 							type='text'
-							placeholder='Enter Image Url'
+							placeholder='Podaj adres zdjęcia'
 						></Form.Control>
 					</Form.Group>
 				</Col>
