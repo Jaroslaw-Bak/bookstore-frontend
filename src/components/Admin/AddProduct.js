@@ -47,40 +47,40 @@ const AddProduct = () => {
 		<Form onSubmit={handleSubmit}>
 			<Row className='mb-3'>
 				<Form.Group as={Col}>
-					<Form.Label>Title</Form.Label>
+					<Form.Label>Tytuł</Form.Label>
 					<Form.Control
 						value={title}
 						size='sm'
 						onChange={(e) => setTitle(e.target.value)}
 						type='text'
-						placeholder='Enter title'
+						placeholder='Wpisz tytuł'
 					></Form.Control>
 				</Form.Group>
 				<Form.Group as={Col}>
-					<Form.Label>Author</Form.Label>
+					<Form.Label>Autor</Form.Label>
 					<Form.Control
 						size='sm'
 						value={author}
 						onChange={(e) => setAuthor(e.target.value)}
 						type='text'
-						placeholder='Enter author'
+						placeholder='Wpisz autora'
 					></Form.Control>
 				</Form.Group>
 				<Form.Group as={Col}>
-					<Form.Label>Price</Form.Label>
+					<Form.Label>Cena</Form.Label>
 					<Form.Control
 						size='sm'
 						value={price}
 						onChange={(e) => setPrice(e.target.value)}
 						type='text'
-						placeholder='Enter price'
+						placeholder='Wpisz cenę'
 					></Form.Control>
 				</Form.Group>
 			</Row>
 			<Row className='mb-3'>
 				<Col sm='4'>
 					<Form.Group>
-						<Form.Label>Price</Form.Label>
+						<Form.Label>Kategoria</Form.Label>
 						<Form.Select
 							size='sm'
 							value={category}
@@ -123,7 +123,7 @@ const AddProduct = () => {
 						checked={bestseller}
 						onChange={(e) => setBestseller(!bestseller)}
 						type='checkbox'
-						label='Bestseller'
+						label='Bestsellery'
 					/>
 				</Form.Group>
 				<Form.Group className='mb-1'>
@@ -131,7 +131,7 @@ const AddProduct = () => {
 						checked={newest}
 						onChange={(e) => setNewest(!newest)}
 						type='checkbox'
-						label='Newest'
+						label='Nowe'
 					/>
 				</Form.Group>
 				<Form.Group className='mb-1'>
@@ -139,7 +139,7 @@ const AddProduct = () => {
 						checked={recomended}
 						onChange={(e) => setRecomended(!recomended)}
 						type='checkbox'
-						label='Recomended'
+						label='Rekomendowane'
 					/>
 				</Form.Group>
 			</Row>
