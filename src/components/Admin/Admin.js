@@ -11,13 +11,13 @@ const Admin = () => {
 
 	return (
 		<div className={styles.wrapper}>
-			<h1>Admin Page</h1>
+			<h1>Strona administratora</h1>
 			<nav>
 				<Link to='addProduct'>
-					<button className='btn btn-primary'>AddProduct</button>
+					<button className='btn btn-primary'>Dodaj produkt</button>
 				</Link>
 				<Link to='users'>
-					<button className='btn btn-primary m-3'>Users</button>
+					<button className='btn btn-primary m-3'>Użytkownicy</button>
 				</Link>
 			</nav>
 			<Outlet />
